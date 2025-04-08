@@ -1,5 +1,6 @@
 import streamlit as st
-import numpy as np 
+import seaborn as sns
+import pandas as pd
 import matplotlib.pyplot as plt
 from src.data_management import load_loan_data
 
@@ -31,14 +32,56 @@ whether a customer defaults.""")
     st.divider()
 
     st.subheader("Feature Importance")
-    st.write("""A correlation study was initially performed to explore 
+    st.write(f"""A correlation study was initially performed to explore 
 relationships between variables and default, but all correlations were very 
 weak (below 0.2). As a result, feature selection was carried out using a 
 pipeline and a tree-based model. The most influential features identified 
 through `.get_support()` and `feature_importances_` were:
 **{important_vars}**.""")
 
-    st.info("""we can see that...
+    st.info("""Analysing the graphs for the most importante features,
+we can see that:
+* The default status appears to occur at lower upfront charges.
+* There is no data available for defaulted loans in the Interest Rate Spread 
+feature, as it is missing for those instances. This absence may suggest that
+the individuals who defaulted did not provide this value, which could explain
+why the plot shows data only for non-defaulted individuals. Despite this,
+the model still considers this feature important, possibly because it is 
+handled differently during training (such as imputation or exclusion).
+* All credit types from EQUI (Equifax) have defaulted, in contrast to the 
+other three categories, where approximately 1/5 of the cases are default.
+* The defaulted loans tend to have a slightly higher median rate of 
+interest than non-defaulted loans, between 3 and 5.
+* The defaulted loans tend to have a larger IOR (between 30 and 50) compared 
+to non-defaulted loans, indicating a wider spread of values, 
+which might suggest a more varied debt-to-income ratio among those who default.
 """)
-    
+
     df_imp = df.filter(important_vars + ["Status"])
+
+    if st.checkbox("Status Levels per Variable"):
+        plot_default_levels_per_variable(df_imp)
+        
+
+def plot_default_levels_per_variable(df):
+    """
+    Plot the default levels per variable.
+    """
+    list_of_variables = df.columns[df.columns != 'Status']
+    target_var = 'Status'
+
+    for var in list_of_variables:
+        if df[var].dtype == 'object':
+            fig, ax = plt.subplots(figsize=(12, 5))
+            sns.countplot(data=df, x=var, hue=target_var,
+                        order=df[var].value_counts().index, stat="percent")
+            plt.title(f"{var}", fontsize=20, y=1.05)
+            st.pyplot(fig)
+        else:
+            fig, ax = plt.subplots(figsize=(12, 5))
+            sns.boxplot(data=df, x="Status", y=var, ax=ax)
+            ax.set_title(f'{var} by Default Status',fontsize=20, y=1.05)
+            ax.set_xlabel("Default Status (0 = No, 1 = Yes)")
+            ax.set_ylabel(var)
+            st.pyplot(fig)
+    
