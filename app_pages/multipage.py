@@ -26,6 +26,7 @@ class MultiPage:
         Run the application.
         """
         st.title(self.app_name)
+        st.divider()
         page = st.sidebar.radio(
             "Menu",
             self.pages,
