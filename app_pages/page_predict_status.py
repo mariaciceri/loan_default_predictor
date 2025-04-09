@@ -10,7 +10,7 @@ def display_predict_status():
     Display the prediction status page of the application.
     """
     #load the data
-    path = "outputs/ml_pipeline/prefict_status/v1"
+    path = "outputs/ml_pipeline/predict_status/v1/"
     status_pipeline_model = load_pkl_file(path + "pipeline_optimized_model.pkl")
 
     status_features = (pd.read_csv(path + "X_train.csv")
@@ -24,13 +24,27 @@ def display_predict_status():
     proactive lending decisions.""")
     st.divider()
 
+    X_live = DrawInputsWidgets()
+
+    if st.button("Run Analysis"):
+        status_prediction = predict_status(
+            X_live,
+            status_features,
+            status_pipeline_model
+        )
+
+        if status_prediction == 1:
+            st.warning("The applicant is likely to default.")
+        else:
+            st.success("The applicant is unlikely to default.")
+
 
 def DrawInputsWidgets():
 
     df = load_loan_data()
 
-    col1, col2, col3 = st.columns(3)
-    col4, col5, col6 = st.columns(3)
+    col1, col2 = st.columns(2)
+    col3, col4 = st.columns(2)
 
     X_live = pd.DataFrame([], index=[0])
 
@@ -66,25 +80,26 @@ def DrawInputsWidgets():
         feature = 'rate_of_interest'
         st_widget = st.slider(
             "Select the Rate of Interest",
-            min_value=0,
+            min_value=0.00,
             max_value=10.00,
             value= 3.00
         )
     X_live[feature] = st_widget
 
+    st.write("Debt to Income Ratio")
+    
+    col5, col6 = st.columns(2)
     with col5:
-        feature = 'dtir1'
-        st.write("Debt to Income Ratio")
         monthly_debt = st.number_input("Monthly Debt Payments", min_value=0.0)
+
+    with col6:
         monthly_income = st.number_input("Monthly Income", min_value=0.0)
 
-        if monthly_income > 0:
-            dti = (monthly_debt / monthly_income) * 100
-        else:
-            dti = None
-        
-    X_live[feature] = dti
+    if monthly_income > 0:
+        dti = (monthly_debt / monthly_income) * 100
+    else:
+        dti = None
 
-    # st.write(X_live)
+    X_live['dtir1'] = dti
 
     return X_live
