@@ -12,11 +12,8 @@ def display_predict_status():
     #load the data
     path = "outputs/ml_pipeline/predict_status/v1/"
     status_pipeline_model = load_pkl_file(path + "pipeline_optimized_model.pkl")
+    status_pipeline_cleaning = load_pkl_file(path + "pipeline_optimized_cleaning.pkl")
 
-    status_features = (pd.read_csv(path + "X_train.csv")
-                       .columns
-                       .to_list()
-                       )
     
     st.header("Loan Status Prediction")
     st.info("""The client is interested in predicting whether a future loan
@@ -25,11 +22,10 @@ def display_predict_status():
     st.divider()
 
     X_live = DrawInputsWidgets()
-
     if st.button("Run Analysis"):
         status_prediction = predict_status(
             X_live,
-            status_features,
+            status_pipeline_cleaning,
             status_pipeline_model
         )
 
@@ -40,7 +36,6 @@ def display_predict_status():
 
 
 def DrawInputsWidgets():
-
     df = load_loan_data()
 
     col1, col2 = st.columns(2)
@@ -87,7 +82,7 @@ def DrawInputsWidgets():
     X_live[feature] = st_widget
 
     st.write("Debt to Income Ratio")
-    
+
     col5, col6 = st.columns(2)
     with col5:
         monthly_debt = st.number_input("Monthly Debt Payments", min_value=0.0)
