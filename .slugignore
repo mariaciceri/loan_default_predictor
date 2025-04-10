@@ -1,2 +1,7 @@
 #Exclude input data
 inputs/datasets/raw
+.ipynb_checkpoints/
+*.log
+*.bak
+.git/
+__pycache__/
