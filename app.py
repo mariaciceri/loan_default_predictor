@@ -1,4 +1,5 @@
 import streamlit as st
+import os
 
 
 from app_pages.multipage import MultiPage
@@ -15,4 +16,6 @@ app.add_page("Status Study", display_status_study)
 app.add_page("Predict Status", display_predict_status)
 app.add_page("ML Status", display_ml_status)
 
-app.run()
+if __name__ == "__main__":
+    port = os.getenv("PORT", 8501)
+    st.run(port=port)
