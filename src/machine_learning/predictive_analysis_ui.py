@@ -12,6 +12,7 @@ def predict_status(X_live, status_pipeline_cleaning, status_pipeline_model):
         X_live_cleaned
         )
 
+    # Display the prediction results
     status_probability = status_prediction_proba[0][status_prediction]*100
     if status_prediction == 1:
         status_result = 'will'
