@@ -120,6 +120,26 @@ The goal of this project is to predict loan default risk, which is a crucial asp
 
 ## Technologies Used
 
+### Language
++[Python](https://www.python.org/) is the main language for the project.
+
+#### Python Packages
++ [Pandas](https://pandas.pydata.org/docs/index.html#) – For handling and analyzing structured data.
++ [Numpy](https://numpy.org/doc/stable/index.html#) – Provides support for numerical operations and arrays.
++ [YData Profiling](https://docs.profiling.ydata.ai/latest/) – Generates automated EDA reports.
++ [Matplotlib](https://matplotlib.org/) – For creating static visualizations.
++ [Seaborn](https://seaborn.pydata.org/) – Simplifies statistical data visualization.
++ [Feature Engine](https://feature-engine.trainindata.com/en/latest/) – Helps with feature engineering for ML.
++ [Scikit-learn](https://scikit-learn.org/stable/) – Tools for machine learning and model evaluation.
++ [Joblib](https://joblib.readthedocs.io/en/stable/) – For saving and loading models efficiently.
+
+### Deployment and Version Control
++ [Git](https://git-scm.com/) manages version control.
++ [GitHub](https://github.com/) hosts the project.
++ [Render](https://render.com/) handles deployment.
+
+### Other
++ [Streamlit](https://streamlit.io/) builds and displays the study.
 
 ## Deployment
 
