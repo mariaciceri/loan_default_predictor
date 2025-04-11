@@ -59,10 +59,8 @@ The dataset, sourced from [Kaggle](https://www.kaggle.com/datasets/yasserh/loan-
 ## Business Requirements
 
 + Banks generate significant revenue through loan lending, but it often comes with the risk of borrower defaults. To address this, banks have turned to Machine Learning. By analyzing historical data on past borrowers, they aim to develop a reliable ML model that can predict whether new borrowers are likely to default on their loans.
-+ Business Requiremet 1: The client is interested in understanding the key factors
-that contribute to a loan default. 
-+ Business Requirement 2: The client is interested in implementing a predictive model
-capable of determining the likelihood of a customer defaulting on a loan.
++ Business Requiremet 1: The client is interested in understanding the key factors that contribute to a loan default. 
++ Business Requirement 2: The client is interested in implementing a predictive model capable of determining the likelihood of a customer defaulting on a loan.
 
 ## Hypothesis
 
@@ -75,9 +73,21 @@ capable of determining the likelihood of a customer defaulting on a loan.
     + Applicants who apply for loans through online or automated systems may have a higher likelihood of defaulting, as these methods could attract borrowers who may not be able to assess the loan’s long-term impact.
 + **Validation**: The analysis did not show any significant impact of the submission type on the likelihood of defaulting.
 
-
 ## Map of Business Requirements to Data Analytics Tasks
 
+The goal of this project is to predict loan default risk, which is a crucial aspect for banks and lending institutions in managing financial risk. The business requirement is to accurately classify whether a loan applicant is likely to default or not. To achieve this, we first mapped the business requirement to the following data visualizations and machine learning tasks:
+
++ Business Requirement 1:
+    + We analyzed the data to understand the relationship between various features and the likelihood of loan default.
+    + We conducted a correlation study using Pearson and Spearman methods to explore potential relationships between the features and the target variable (default status).
+    + The results of the correlation study did not reveal any strong relationships, so we moved on to fitting a machine learning model.
+    + Feature importance was then used to identify the key factors influencing loan default predictions.
+
++ Business Requirement 2:
+    + The goal was to build a binary classifier to predict whether a loan applicant would default or not.
+    + We ran a custom function to identify the best model for predicting loan defaults and selected the Extra Trees Classifier, as it accounted for more features and performed well with our dataset.
+    + Hyperparameters were left at their default values, as the model's performance was already exceptional, with cross-validation and the confusion matrix returning a recall and F1-score of 0.999.
+    + Finally, the model can be used to predict if an applicant will likely to default or not.
 
 ## ML Business Case
 
