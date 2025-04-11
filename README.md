@@ -90,7 +90,12 @@ The goal of this project is to predict loan default risk, which is a crucial asp
     + Finally, the model can be used to predict if an applicant will likely to default or not.
 
 ## ML Business Case
+### Predict Loan Status
 
+#### Classification Model
++ We aimed to develop a machine learning model to predict whether a loan applicant is likely to default based on historical data from borrowers. The target variable is binary, where 0 indicates no default and 1 indicates default. We focused on creating a classification model, a supervised, 2-class model, which outputs either 0 (no default) or 1 (default).
++ The ideal outcome for the model is to accurately predict loan defaults, providing valuable insights to banks and financial institutions to help minimize the risk of defaults. We set performance goals of achieving at least 85% recall and 80% F1-score on both the training and testing datasets. These metrics are essential for ensuring that defaults are detected effectively without unnecessary false positives.
++ The model performed exceptionally well, exceeding the initial goals with both recall and F1-scores much higher than expected on both the train and test sets.
 
 ## Dashboard Design
 
