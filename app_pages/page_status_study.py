@@ -61,7 +61,26 @@ which might suggest a more varied debt-to-income ratio among those who default.
 
     if st.checkbox("Status Levels per Variable"):
         plot_default_levels_per_variable(df_imp)
-        
+
+    st.divider()
+    st.subheader("Project Hypothesis and Validation")
+    st.write(f"""**->** It is believed that key factors such as the interest
+rate, income, loan-to-value ratio, debt-to-income ratio, and credit score are
+critical in predicting whether a loan applicant is likely to default.""")
+    st.success("""A correlation analysis was conducted, but it did not reveal
+any strong relationships between the variables and the default status.
+Consequently, feature selection was carried out using a pipeline with a
+tree-based model. The key features identified for the model were upfront
+charges, interest rate spread, rate of interest, credit type, and
+debt-to-income ratio. This process confirmed that some of the initial
+assumptions were correct, but not all.""")
+    
+    st.write(f"""**->** Applicants who apply for loans through online or
+automated systems may have a higher likelihood of defaulting, as these methods
+could attract borrowers who may not be able to assess the loan’s long-term
+impact.""")
+    st.warning("""The analysis did not show any significant impact of the
+submission type on the likelihood of defaulting.""")
 
 def plot_default_levels_per_variable(df):
     """
