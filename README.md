@@ -143,6 +143,41 @@ The goal of this project is to predict loan default risk, which is a crucial asp
 
 ## Deployment
 
++ To deploy both locally and to an external app, you must first:
+    + Clone the repository from GitHub page by running the command `git clone https://github.com/mariaciceri/loan_default_predictor.git`;
+    + Alternatively, download it as a ZIP file from the [GitHub page](https://github.com/mariaciceri/loan_default_predictor) and extract it to a chosen location in your computer;
+    + To install the necessary libraries, run `pip install -r requirements.txt`.
+        * `YData-profiling` dependency was preventing the page to be deployed, so it must installed separately via the terminal using `pip install ydata-profiling`.
+    + Save the project on your own GitHub account by using the command `git push`.
+    + Make sure to follow these steps before continuing with one of the deployment methods below.
+
+### Deployment to Render
++ Log in to Render and click on the button New on the top-right corner.
+
+![Render's navbar](docs/images/render-new.png)
+
++ Select `Web Service` from the dropdown menu.
+
+![Render's dropdown menu with options to new apps to create](docs/images/render-webservice.png)
+
++ Choose `Git Provider` and authorize Render to connect to your GitHub account if necessary.
++ Search for the project and select it.
+
+![Choosing repo to deploy](docs/images/render-choosing-repo.png)
+
++ Select a name for the project, and check if the other information like Language (Python 3), Branch (main), Region (your region) is set correctly, otherwise include them.
+
+![Render's information](docs/images/render-info1.png)
+
++ Include Build Command (pip install -r requirements.txt) and Start Command (streamlit run app.py)
+
+![Render's information](docs/images/render-info2.png)
+
++ Select the Instance Type of your choice and click on the Deploy Web Service button at the botton of the page.
++ It may take a couple of minutes to deploy, after completed, a link to the page will be available on the page, below the app's name.
+
+### Run locally
++ On the terminal, navigate to the folder where the project is located in your computer and run `streamlit run app.py`.
 
 ## Testing
 
