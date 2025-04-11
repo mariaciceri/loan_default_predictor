@@ -58,6 +58,11 @@ The dataset, sourced from [Kaggle](https://www.kaggle.com/datasets/yasserh/loan-
 
 ## Business Requirements
 
++ Banks generate significant revenue through loan lending, but it often comes with the risk of borrower defaults. To address this, banks have turned to Machine Learning. By analyzing historical data on past borrowers, they aim to develop a reliable ML model that can predict whether new borrowers are likely to default on their loans.
++ Business Requiremet 1: The client is interested in understanding the key factors
+that contribute to a loan default. 
++ Business Requirement 2: The client is interested in implementing a predictive model
+capable of determining the likelihood of a customer defaulting on a loan.
 
 ## Hypothesis
 
