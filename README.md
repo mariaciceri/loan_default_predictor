@@ -99,6 +99,24 @@ The goal of this project is to predict loan default risk, which is a crucial asp
 
 ## Dashboard Design
 
+### Page 1: Quick project summary
++ Project Terms & Jargon.
++ Description of Project Dataset.
++ State Business Requirements.
+
+### Page 2: Loan Status Study
++ Presentation and exploration of data.
++ Visualization of feature importance with a detailed plot to highlight the most influential factors, as per requirement 1.
++ Presentation of the project hypothesis and validation.
+
+### Page 3: Loan Status Prediction
++ Prediction of default likelihood based on inputed data, as per requirement 2.
++ Probability score display, to indicate the model's confidence in the prediction for that specific application.
+
+### Page 4: ML Pipeline for Loan Status Prediction
++ Overview of key model performance metrics.
++ Description of the machine learning pipeline.
++ Visualization of the confusion matrix and cross-validation results.
 
 ## Technologies Used
 
