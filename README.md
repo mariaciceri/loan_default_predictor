@@ -66,6 +66,15 @@ capable of determining the likelihood of a customer defaulting on a loan.
 
 ## Hypothesis
 
++ **Hypothesis 1**:
+    + It is believed that key factors such as the interest rate, income, loan-to-value ratio, debt-to-income ratio, and credit score are critical in predicting whether a loan applicant is likely to default.
+
++ **Validation**: A correlation analysis was conducted, but it did not reveal any strong relationships between the variables and the default status. Consequently, feature selection was carried out using a pipeline with a tree-based model. The key features identified for the model were upfront charges, interest rate spread, rate of interest, credit type, and debt-to-income ratio. This process confirmed that some of the initial assumptions were correct, but not all.
+
++ **Hypothesis 2**:
+    + Applicants who apply for loans through online or automated systems may have a higher likelihood of defaulting, as these methods could attract borrowers who may not be able to assess the loan’s long-term impact.
++ **Validation**: The analysis did not show any significant impact of the submission type on the likelihood of defaulting.
+
 
 ## Map of Business Requirements to Data Analytics Tasks
 
