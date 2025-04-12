@@ -81,6 +81,19 @@ could attract borrowers who may not be able to assess the loan’s long-term
 impact.""")
     st.warning("""The analysis did not show any significant impact of the
 submission type on the likelihood of defaulting.""")
+    
+    st.write(f"""**->** It is hypothesized that borrowers with higher interest
+rates are more likely to default on their loans. This assumption is based on
+the idea that higher interest rates are often assigned to individuals who are
+perceived as riskier by lenders.""")
+    st.success(f"""To assess this hypothesis, a box plot was created comparing
+the `rate_of_interest` across default statuses (0 = No, 1 = Yes). The plot
+reveals that the median interest rate for defaulters is indeed slightly higher
+than for non-defaulters, which aligns with the hypothesis.
+* Interestingly, there are more high-interest outliers among non-defaulters
+than among defaulters, which may indicate that some high-risk borrowers still
+manage to avoid default, possibly due to other stabilizing factors such as
+income, loan type, or external support.""")
 
 def plot_default_levels_per_variable(df):
     """
