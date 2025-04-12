@@ -4,30 +4,32 @@ import time
 from src.data_management import load_sets, load_pkl_file
 from src.machine_learning.evaluate_pipeline import evaluate_pipeline
 
+
 def display_ml_status():
     """
     Display the machine learning status page of the application.
     """
     path = "outputs/ml_pipeline/predict_status/v1/"
-    status_pipeline_model = load_pkl_file(path + "pipeline_optimized_model.pkl")
-    status_pipeline_cleaning = load_pkl_file(path + "pipeline_optimized_cleaning.pkl")
+    status_pipeline_model = load_pkl_file(
+        path + "pipeline_optimized_model.pkl")
+    status_pipeline_cleaning = load_pkl_file(
+        path + "pipeline_optimized_cleaning.pkl")
     feature_importance = plt.imread(path + "feature_importance.png")
     confusion_matrix_train = plt.imread(path + "conf_matrix_Trainset.png")
     confusion_matrix_test = plt.imread(path + "conf_matrix_Testset.png")
     X_train, y_train = load_sets()
 
-
     st.header("ML Pipeline for Loan Status Prediction")
     st.info("""The project aimed to achieve a recall of at least 85% and an
-    F1 score of 80%, as these metrics are most aligned with the business 
-    objectives. In the context of predicting loan defaults.""") 
-    
-    scores_explained = """-> Recall is critical because it measures the model’s ability
-    to correctly identify customers who are likely to default. Missing such 
-    cases could result in significant financial losses.
-    -> The F1 score, which balances both precision and recall, ensures the model
-    performs well across both metrics, avoiding too many false positives while
-    still catching the true defaulters."""
+    F1 score of 80%, as these metrics are most aligned with the business
+    objectives. In the context of predicting loan defaults.""")
+
+    scores_explained = """-> Recall is critical because it measures
+    the model’s ability to correctly identify customers who are likely to
+    default. Missing such cases could result in significant financial losses.
+    -> The F1 score, which balances both precision and recall, ensures the
+    model performs well across both metrics, avoiding too many false positives
+    while still catching the true defaulters."""
 
     def stream_data():
         """
@@ -42,7 +44,7 @@ def display_ml_status():
 
     st.success("""The project successfully surpassed these targets, achieving
     a recall and F1 score of 100%, indicating that the model was highly
-    effective in identifying all potential defaults without compromising 
+    effective in identifying all potential defaults without compromising
     overall performance.""")
 
     if st.checkbox("Learn About Recall and F1 Scores"):
@@ -56,7 +58,7 @@ def display_ml_status():
 * **Cleaning Pipeline**: This pipeline handles data preprocessing, including
     imputation of missing values, encoding categorical variables, and applying
     Yeo-Johnson transformation for normalization.
-* **Model Pipeline**: This pipeline focuses on model training, which includes 
+* **Model Pipeline**: This pipeline focuses on model training, which includes
     scaling the data using StandardScaler and training an Extra Trees
     Classifier for prediction.""")
 
@@ -85,7 +87,9 @@ def display_ml_status():
     st.badge("Train Set Confusion Matrix", icon=":material/rubric:")
     st.image(confusion_matrix_train, caption="Train Set Confusion Matrix")
 
-    st.badge("Test Set Confusion Matrix", icon=":material/rubric:", color="green")
+    st.badge("Test Set Confusion Matrix",
+             icon=":material/rubric:",
+             color="green")
     st.image(confusion_matrix_test, caption="Test Set Confusion Matrix")
 
     with st.spinner("Evaluating model performance..."):

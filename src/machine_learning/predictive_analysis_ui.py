@@ -19,8 +19,7 @@ def predict_status(X_live, status_pipeline_cleaning, status_pipeline_model):
     else:
         status_result = 'will not'
 
-
-    st.write(f"""There is a {status_probability[0].round(2)}% chance that the applicant
-{status_result} default.""")
+    st.write(f"""There is a {status_probability[0].round(2)}% chance that the
+applicant {status_result} default.""")
 
     return status_prediction[0]

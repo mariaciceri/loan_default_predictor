@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
 from src.data_management import load_loan_data, load_pkl_file
 from src.machine_learning.predictive_analysis_ui import predict_status
 
@@ -9,12 +8,12 @@ def display_predict_status():
     """
     Display the prediction status page of the application.
     """
-    #load the data
     path = "outputs/ml_pipeline/predict_status/v1/"
-    status_pipeline_model = load_pkl_file(path + "pipeline_optimized_model.pkl")
-    status_pipeline_cleaning = load_pkl_file(path + "pipeline_optimized_cleaning.pkl")
+    status_pipeline_model = load_pkl_file(
+        path + "pipeline_optimized_model.pkl")
+    status_pipeline_cleaning = load_pkl_file(
+        path + "pipeline_optimized_cleaning.pkl")
 
-    
     st.header("Loan Status Prediction")
     st.info("""The client is interested in predicting whether a future loan
     applicant is likely to default, in order to support more informed and
@@ -36,6 +35,7 @@ def display_predict_status():
 
 
 def DrawInputsWidgets():
+    """Create input widgets for the user to enter loan data."""
     df = load_loan_data()
 
     col1, col2 = st.columns(2)
@@ -59,7 +59,7 @@ def DrawInputsWidgets():
             "Select the Interest Rate Spread",
             min_value=-4.00,
             max_value=4.00,
-            value= 2.00
+            value=2.00
         )
     X_live[feature] = st_widget
 
@@ -77,7 +77,7 @@ def DrawInputsWidgets():
             "Select the Rate of Interest",
             min_value=0.00,
             max_value=10.00,
-            value= 3.00
+            value=3.00
         )
     X_live[feature] = st_widget
 
