@@ -4,6 +4,7 @@
 
 ## Table of Content
 
++ [User Stories](#user-stories)
 + [Dataset Content](#dataset-content)
 + [Business Requirements](#business-requirements)
 + [Hypothesis](#hypothesis)
@@ -14,6 +15,10 @@
 + [Deployment](#deployment)
 + [Testing](#testing)
 + [Credits](#credits)
+
+## User Stories
+
+
 
 ## Dataset Content
 
