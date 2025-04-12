@@ -218,5 +218,37 @@ The goal of this project is to predict loan default risk, which is a crucial asp
 
 ## Testing
 
+### Validation 
+#### PEP8 
++ All Python files were run through [PEP8 CI Python Linter](https://pep8ci.herokuapp.com).
+
+| File | Screenshot | Notes |
+| --- | --- | --- |
+| app.py | ![PEP8 for app.py ](/docs/images/pep8-app.png) | no issues |
+| data_management.py | ![PEP8 for src/data_management.py ](/docs/images/pep8-data-management.png) | no issues |
+| evaluate_pipeline.py | ![PEP8 for src/machine_learning/evaluate_pipeline.py ](/docs/images/pep8-eval-ppl.png) | no issues |
+| predictive_analysis_ui.py | ![PEP8 for src/machine_learning/predictive_analysis_ui.py ](/docs/images/pep8-predict-helper.png) | no issues |
+| multipage.py | ![PEP8 for app_pages/multipage.py ](/docs/images/pep8-multipage.png) | no issues |
+| page_ml_status.py | ![PEP8 for app_pages/page_ml_status.py ](/docs/images/pep8-mlstatus.png) | no issues |
+| page_predict_status.py | ![PEP8 for app_pages/page_predict_status.py ](/docs/images/pep8-predict.png) | no issues |
+| page_status_study.py | ![PEP8 for app_pages/page_status_study.py ](/docs/images/pep8-study.png) | no issues |
+| page_summary.py | ![PEP8 for app_pages/page_summary.py ](/docs/images/pep8-summary.png) | no issues |
+
+### Manual Testing
+
++ Manual testing was performed to ensure that the application behaves as expected in real-world usage. Each feature was tested by manually interacting with the interface, verifying functionality, and identifying any issues. These tests ensure that the User Stories are fully implemented and functioning as intended.
+
+### Users pages
+| Page | Action | Result |
+| --- | --- | --- |
+| From any page | Go to the summary/status study/predict status/ML status page | Can see the content without any bugs |
+| Summary | Click on README file hyperlink | Takes the user to GitHub repo where the README is available |
+| Status Study | Check the "Inspect loan default" checkbox | Loads the first 5 rows of the dataset |
+| Status Study | Check the "Status Levels per Variable" checkbox | Loads 5 plots of the most important features for the model |
+| Predict Status | Input anything on "Enter the value for Upfront Charges"/"Monthly Debt Payments"/"Monthly Income" | Accepts a number input but not letters |
+| Predict Status | Slide the "Select the Interest Rate Spread"/"Select the Rate of Interest" slider | Works as expected |
+| Predict Status | Click on "Select the Credit Type" dropdown | Shows options for credit type that can be selected |
+| Predict Status | Click on the "Run Analysis" button | Displays a message with the results of the analysis |
+| ML Status | Check the "Learn About Recall and F1 Scores | Display a text |
 
 ## Credits
