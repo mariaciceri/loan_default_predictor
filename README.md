@@ -18,7 +18,30 @@
 
 ## User Stories
 
++ As a non-technical user, I want to view a project summary that clearly outlines the scope of the project.
 
++ As a non-technical user, I can view the studies conducted in the project and read about the hypotheses and their validations.
+
++ As a client, I want to understand the most important attributes of a loan application that influence the likelihood of default.
+    + Business requirement 1.
+
++ As a client, I want to predict with high certainty the likelihood that a loan applicant will default.
+    + Business requirement 2.
+
++ As a client, I want to easily input live data and receive a prediction through a user-friendly dashboard.
+    + Business requirement 2.
+
++ As a technical user, I want to understand the ML steps used to make the status prediction, so I can comprehend the model employed.
+
++ As a technical user, I want to know the model's performance to ensure the predictions are reliable.
+    + Business requirement 2.
+
++ As a client or non-technical user, I want to view relevant plots to easily visualize how different loan attributes relate to default.
+    + Business requirement 1.
+
++ As a technical user, I can read about the rationale behind the chosen evaluation metrics to understand why they were used to assess model performance.
+
++ As a technical user, I can visualize relevant plots to assess the model’s reliability.
 
 ## Dataset Content
 
@@ -70,13 +93,18 @@ The dataset, sourced from [Kaggle](https://www.kaggle.com/datasets/yasserh/loan-
 ## Hypothesis
 
 + **Hypothesis 1**:
-    + It is believed that key factors such as the interest rate, income, loan-to-value ratio, debt-to-income ratio, and credit score are critical in predicting whether a loan applicant is likely to default.
-
+    + It is hypothesized that key factors such as interest rate, income, loan-to-value ratio, debt-to-income ratio, and credit score are crucial in predicting the likelihood of a loan applicant defaulting.
 + **Validation**: A correlation analysis was conducted, but it did not reveal any strong relationships between the variables and the default status. Consequently, feature selection was carried out using a pipeline with a tree-based model. The key features identified for the model were upfront charges, interest rate spread, rate of interest, credit type, and debt-to-income ratio. This process confirmed that some of the initial assumptions were correct, but not all.
 
 + **Hypothesis 2**:
     + Applicants who apply for loans through online or automated systems may have a higher likelihood of defaulting, as these methods could attract borrowers who may not be able to assess the loan’s long-term impact.
-+ **Validation**: The analysis did not show any significant impact of the submission type on the likelihood of defaulting.
++ **Validation**: The analysis of feature importance revealed no significant correlation between submission type and the likelihood of default.
+
++ **Hypothesis 2**:
+    + It is hypothesized that borrowers with higher interest rates are more likely to default on their loans. This assumption is based on the idea that higher interest rates are often assigned to individuals who are perceived as riskier by lenders.
++ **Validation**: To assess the hypothesis, a box plot was created comparing the rate_of_interest across default statuses (0 = No, 1 = Yes). The plot shows that defaulters have a slightly higher median interest rate, supporting the hypothesis.
+However, there are key nuances to consider. Among non-defaulters, there are extreme low-interest outliers, likely representing highly creditworthy individuals. Interestingly, there are more high-interest outliers among non-defaulters than among defaulters. This suggests that some high-risk borrowers manage to avoid default, possibly due to other stabilizing factors such as income, loan type, or external support.
+Overall, while the interest rate shows a general trend supporting the hypothesis, it should not be relied upon as a sole predictor of default. It should be interpreted in combination with other features for a more accurate prediction.
 
 ## Map of Business Requirements to Data Analytics Tasks
 
@@ -90,7 +118,7 @@ The goal of this project is to predict loan default risk, which is a crucial asp
 
 + Business Requirement 2:
     + The goal was to build a binary classifier to predict whether a loan applicant would default or not.
-    + We ran a custom function to identify the best model for predicting loan defaults and selected the Extra Trees Classifier, as it accounted for more features and performed well with our dataset.
+    + We utilized a custom function provided by Code Institute, which performed a grid search across various algorithms and parameters, followed by plotting feature selection for each model. Based on this analysis, we selected the Extra Trees Classifier, as it accounted for more features and performed well with our dataset.
     + Hyperparameters were left at their default values, as the model's performance was already exceptional, with cross-validation and the confusion matrix returning a recall and F1-score of 0.999.
     + Finally, the model can be used to predict if an applicant will likely to default or not.
 
@@ -101,6 +129,10 @@ The goal of this project is to predict loan default risk, which is a crucial asp
 + We aimed to develop a machine learning model to predict whether a loan applicant is likely to default based on historical data from borrowers. The target variable is binary, where 0 indicates no default and 1 indicates default. We focused on creating a classification model, a supervised, 2-class model, which outputs either 0 (no default) or 1 (default).
 + The ideal outcome for the model is to accurately predict loan defaults, providing valuable insights to banks and financial institutions to help minimize the risk of defaults. We set performance goals of achieving at least 85% recall and 80% F1-score on both the training and testing datasets. These metrics are essential for ensuring that defaults are detected effectively without unnecessary false positives.
 + The model performed exceptionally well, exceeding the initial goals with both recall and F1-scores much higher than expected on both the train and test sets.
++ Model Success Metrics:
+    + Recall: At least 85% on both train and test sets and F1-Score: At least 80% on both train and test sets.
++ The model is deemed a failure if it incorrectly predicts 25% of defaulters as non-defaulters.
++ Heuristics: Prior to this work, no specific approach for predicting loan defaults was established using this dataset.
 
 ## Dashboard Design
 
