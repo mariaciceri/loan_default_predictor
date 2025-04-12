@@ -20,7 +20,7 @@ def display_ml_status():
     st.header("ML Pipeline for Loan Status Prediction")
     st.info("""The project aimed to achieve a recall of at least 85% and an
     F1 score of 80%, as these metrics are most aligned with the business 
-    objectives. In the context of predicting loan defaults""") 
+    objectives. In the context of predicting loan defaults.""") 
     
     scores_explained = """-> Recall is critical because it measures the model’s ability
     to correctly identify customers who are likely to default. Missing such 
