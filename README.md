@@ -252,3 +252,11 @@ The goal of this project is to predict loan default risk, which is a crucial asp
 | ML Status | Check the "Learn About Recall and F1 Scores | Display a text |
 
 ## Credits
+
++ Documentation for the technologies used, including Pandas, Matplotlib, Scikit-learn, Feature-engine, Seaborn, and Streamlit.
++ Kaggle for providing the dataset. 
++ [ChatGPT](https://chatgpt.com/) assisted in understanding error messages.
++ [VSCode](https://code.visualstudio.com/) is the integrated development environment (IDE) used for the project.
++ [Code Institute](https://codeinstitute.net/) for providing custom functions that simplified the analysis and supported decision-making.
++ [Render](https://render.com/) for offering a free and user-friendly platform to deploy the project.
++ [Google fonts](https://fonts.google.com/icons) for providing with the icons for the whole project.
