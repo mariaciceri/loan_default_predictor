@@ -4,9 +4,9 @@
 
 ## Table of Content
 
-+ [User Stories](#user-stories)
 + [Dataset Content](#dataset-content)
 + [Business Requirements](#business-requirements)
++ [User Stories](#user-stories)
 + [Hypothesis](#hypothesis)
 + [Map of Business Requirements to Data Analytics Tasks](#map-of-business-requirements-to-data-analytics-tasks)
 + [ML Business Case](#ml-business-case)
@@ -15,33 +15,6 @@
 + [Deployment](#deployment)
 + [Testing](#testing)
 + [Credits](#credits)
-
-## User Stories
-
-+ As a non-technical user, I want to view a project summary that clearly outlines the scope of the project.
-
-+ As a non-technical user, I can view the studies conducted in the project and read about the hypotheses and their validations.
-
-+ As a client, I want to understand the most important attributes of a loan application that influence the likelihood of default.
-    + Business requirement 1.
-
-+ As a client, I want to predict with high certainty the likelihood that a loan applicant will default.
-    + Business requirement 2.
-
-+ As a client, I want to easily input live data and receive a prediction through a user-friendly dashboard.
-    + Business requirement 2.
-
-+ As a technical user, I want to understand the ML steps used to make the status prediction, so I can comprehend the model employed.
-
-+ As a technical user, I want to know the model's performance to ensure the predictions are reliable.
-    + Business requirement 2.
-
-+ As a client or non-technical user, I want to view relevant plots to easily visualize how different loan attributes relate to default.
-    + Business requirement 1.
-
-+ As a technical user, I can read about the rationale behind the chosen evaluation metrics to understand why they were used to assess model performance.
-
-+ As a technical user, I can visualize relevant plots to assess the model’s reliability.
 
 ## Dataset Content
 
@@ -90,6 +63,33 @@ The dataset, sourced from [Kaggle](https://www.kaggle.com/datasets/yasserh/loan-
 + Business Requiremet 1: The client is interested in understanding the key factors that contribute to a loan default. 
 + Business Requirement 2: The client is interested in implementing a predictive model capable of determining the likelihood of a customer defaulting on a loan.
 
+## User Stories
+
++ As a non-technical user, I want to view a project summary that clearly outlines the scope of the project.
+
++ As a non-technical user, I can view the studies conducted in the project and read about the hypotheses and their validations.
+
++ As a client, I want to understand the most important attributes of a loan application that influence the likelihood of default.
+    + Business requirement 1.
+
++ As a client, I want to predict with high certainty the likelihood that a loan applicant will default.
+    + Business requirement 2.
+
++ As a client, I want to easily input live data and receive a prediction through a user-friendly dashboard.
+    + Business requirement 2.
+
++ As a technical user, I want to understand the ML steps used to make the status prediction, so I can comprehend the model employed.
+
++ As a technical user, I want to know the model's performance to ensure the predictions are reliable.
+    + Business requirement 2.
+
++ As a client or non-technical user, I want to view relevant plots to easily visualize how different loan attributes relate to default.
+    + Business requirement 1.
+
++ As a technical user, I can read about the rationale behind the chosen evaluation metrics to understand why they were used to assess model performance.
+
++ As a technical user, I can visualize relevant plots to assess the model’s reliability.
+
 ## Hypothesis
 
 + **Hypothesis 1**:
@@ -100,7 +100,7 @@ The dataset, sourced from [Kaggle](https://www.kaggle.com/datasets/yasserh/loan-
     + Applicants who apply for loans through online or automated systems may have a higher likelihood of defaulting, as these methods could attract borrowers who may not be able to assess the loan’s long-term impact.
 + **Validation**: The analysis of feature importance revealed no significant correlation between submission type and the likelihood of default.
 
-+ **Hypothesis 2**:
++ **Hypothesis 3**:
     + It is hypothesized that borrowers with higher interest rates are more likely to default on their loans. This assumption is based on the idea that higher interest rates are often assigned to individuals who are perceived as riskier by lenders.
 + **Validation**: To assess the hypothesis, a box plot was created comparing the rate_of_interest across default statuses (0 = No, 1 = Yes). The plot shows that defaulters have a slightly higher median interest rate, supporting the hypothesis.
 However, there are key nuances to consider. Among non-defaulters, there are extreme low-interest outliers, likely representing highly creditworthy individuals. Interestingly, there are more high-interest outliers among non-defaulters than among defaulters. This suggests that some high-risk borrowers manage to avoid default, possibly due to other stabilizing factors such as income, loan type, or external support.
@@ -158,7 +158,7 @@ The goal of this project is to predict loan default risk, which is a crucial asp
 ## Technologies Used
 
 ### Language
-+[Python](https://www.python.org/) is the main language for the project.
++ [Python](https://www.python.org/) is the main language for the project.
 
 #### Python Packages
 + [Pandas](https://pandas.pydata.org/docs/index.html#) – For handling and analyzing structured data.
@@ -238,18 +238,41 @@ The goal of this project is to predict loan default risk, which is a crucial asp
 
 + Manual testing was performed to ensure that the application behaves as expected in real-world usage. Each feature was tested by manually interacting with the interface, verifying functionality, and identifying any issues. These tests ensure that the User Stories are fully implemented and functioning as intended.
 
-### Users pages
+### User's pages
+
+Dashboard was manually tested using user stories as a basis for success.
+
++ As a non-technical user, I want to view a project summary that clearly outlines the scope of the project.
++ As a non-technical user, I can view the studies conducted in the project and read about the hypotheses and their validations.
++ As a client, I want to understand the most important attributes of a loan application that influence the likelihood of default.
++ As a technical user, I want to understand the ML steps used to make the status prediction, so I can comprehend the model employed.
++ As a technical user, I want to know the model's performance to ensure the predictions are reliable.
++ As a client or non-technical user, I want to view relevant plots to easily visualize how different loan attributes relate to default.
++ As a technical user, I can visualize relevant plots to assess the model’s reliability.
+
 | Page | Action | Result |
 | --- | --- | --- |
 | From any page | Go to the summary/status study/predict status/ML status page | Can see the content without any bugs |
-| Summary | Click on README file hyperlink | Takes the user to GitHub repo where the README is available |
-| Status Study | Check the "Inspect loan default" checkbox | Loads the first 5 rows of the dataset |
 | Status Study | Check the "Status Levels per Variable" checkbox | Loads 5 plots of the most important features for the model |
+| Status Study | Check the "Inspect loan default" checkbox | Loads the first 5 rows of the dataset |
+
++ As a client, I want to predict with high certainty the likelihood that a loan applicant will default.
++ As a client, I want to easily input live data and receive a prediction through a user-friendly dashboard.
+
+| Page | Action | Result |
+| --- | --- | --- |
 | Predict Status | Input anything on "Enter the value for Upfront Charges"/"Monthly Debt Payments"/"Monthly Income" | Accepts a number input but not letters |
 | Predict Status | Slide the "Select the Interest Rate Spread"/"Select the Rate of Interest" slider | Works as expected |
 | Predict Status | Click on "Select the Credit Type" dropdown | Shows options for credit type that can be selected |
 | Predict Status | Click on the "Run Analysis" button | Displays a message with the results of the analysis |
-| ML Status | Check the "Learn About Recall and F1 Scores | Display a text |
+
++ As a technical user, I can read about the rationale behind the chosen evaluation metrics to understand why they were used to assess model performance.
+
+| Page | Action | Result |
+| --- | --- | --- |
+| Summary | Click on README file hyperlink | Takes the user to GitHub repo where the README is available |
+| Status Study | Check the "Inspect loan default" checkbox | Loads the first 5 rows of the dataset |
+| ML Status | Check the "Learn About Recall and F1 Scores" checkbox | Display the text about recall and F1 |
 
 ## Credits
 
